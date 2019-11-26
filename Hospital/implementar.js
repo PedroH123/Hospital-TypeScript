@@ -1,0 +1,80 @@
+var Hospital;
+(function (Hospital) {
+    var hospital = new Hospital.Hospital();
+    hospital.setNome("Sírio Libanes");
+    var medico = new Hospital.Medico();
+    medico.setNome("Kirb");
+    medico.setCodFuncionario(1);
+    medico.setCpf("000.000.000-00");
+    medico.setCrm(11111);
+    medico.setEspecialidade(5);
+    var medico2 = new Hospital.Medico();
+    medico2.setNome("Link");
+    medico2.setCodFuncionario(2);
+    medico2.setCpf("111.000.000-11");
+    medico2.setCrm(22222);
+    medico2.setEspecialidade(10);
+    var medico3 = new Hospital.Medico();
+    medico3.setNome("Sonic");
+    medico3.setCodFuncionario(3);
+    medico3.setCpf("222.000.000-22");
+    medico3.setCrm(33333);
+    medico3.setEspecialidade(2);
+    var enfermeiro = new Hospital.Enfermeiro();
+    enfermeiro.setNome("Kirb");
+    enfermeiro.setCodFuncionario(1);
+    enfermeiro.setCpf("000.000.000-00");
+    enfermeiro.setCoren(11111);
+    var enfermeiro2 = new Hospital.Enfermeiro();
+    enfermeiro2.setNome("Link");
+    enfermeiro2.setCodFuncionario(2);
+    enfermeiro2.setCpf("111.000.000-11");
+    enfermeiro2.setCoren(22222);
+    var enfermeiro3 = new Hospital.Enfermeiro();
+    enfermeiro3.setNome("Sonic");
+    enfermeiro3.setCodFuncionario(3);
+    enfermeiro3.setCpf("222.000.000-22");
+    enfermeiro3.setCoren(33333);
+    var paciente = new Hospital.Paciente();
+    paciente.setNome("Kirb");
+    paciente.setCodPaciente(1);
+    paciente.setCpf("000.000.000-00");
+    var paciente2 = new Hospital.Paciente();
+    paciente2.setNome("Link");
+    paciente2.setCodPaciente(2);
+    paciente2.setCpf("111.000.000-11");
+    var paciente3 = new Hospital.Paciente();
+    paciente3.setNome("Sonic");
+    paciente3.setCodPaciente(3);
+    paciente3.setCpf("222.000.000-22");
+    hospital.addEnfermeiro(enfermeiro);
+    hospital.addEnfermeiro(enfermeiro2);
+    hospital.addEnfermeiro(enfermeiro3);
+    hospital.addMedico(medico);
+    hospital.addMedico(medico2);
+    hospital.addMedico(medico3);
+    hospital.addPaciente(paciente);
+    hospital.addPaciente(paciente2);
+    hospital.addPaciente(paciente3);
+    //implementação de tabela
+    var tabela1 = document.getElementById("tabela1");
+    var conteudo1 = "<tr><th>Nome</th> <th>Cpf</th>  <th>Codigo</th> <th>Crm</th> <th>Especialidade</th> </tr>";
+    hospital.getMedico().forEach(function (element) {
+        conteudo1 += "<tr><td>" + element.getNome() + "</td><td>" + element.getCpf() + "</td><td>" + element.getCodFuncionario() + "</td><td>" + element.getCrm() + "</td><td>" + element.getEspecialidade() + "</td></tr>";
+    });
+    tabela1.innerHTML = conteudo1;
+    //------------------------------------------------------------//
+    var tabela2 = document.getElementById("tabela2");
+    var conteudo2 = "<tr><th>Nome</th> <th>Cpf</th>  <th>Codigo</th> <th>Coren</th> </tr>";
+    hospital.getEnfermeiro().forEach(function (element) {
+        conteudo2 += "<tr><td>" + element.getNome() + "</td><td>" + element.getCpf() + "</td><td>" + element.getCodFuncionario() + "</td><td>" + element.getCoren() + "</td></tr>";
+    });
+    tabela2.innerHTML = conteudo2;
+    //------------------------------------------------------------//
+    var tabela3 = document.getElementById("tabela3");
+    var conteudo3 = "<tr><th>Nome</th>  <th>Cpf</th> <th>Codigo</th> </tr>";
+    hospital.getPaciente().forEach(function (element) {
+        conteudo3 += "<tr><td>" + element.getNome() + "</td><td>" + element.getCpf() + "</td><td>" + element.getCodPaciente() + "</td></tr>";
+    });
+    tabela3.innerHTML = conteudo3;
+})(Hospital || (Hospital = {}));

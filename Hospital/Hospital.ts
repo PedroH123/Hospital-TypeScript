@@ -1,5 +1,5 @@
 namespace Hospital{
-    export  class Banco{
+    export  class Hospital{
         private _nome:string;
         private _enfermeiros:Array<Enfermeiro> = [];
         private _medicos:Array<Medico> = [];
